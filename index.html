@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone 13 por R$1 - Promoção Limitada</title>
+  <style>
+    :root {
+      --primary: #ffcc00;
+      --background: #0f0f0f;
+      --background-light: #ffffff;
+      --accent-green: #28a745;
+      --accent-blue: #007bff;
+      --text-light: #f1f1f1;
+      --text-dark: #333333;
+      --footer-text: #777;
+      --footer-text-light: #666;
+      --video-shadow: rgba(255, 204, 0, 0.3);
+      --video-shadow-light: rgba(0, 123, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.light-mode {
+      background: var(--background-light);
+      color: var(--text-dark);
+      --footer-text: var(--footer-text-light);
+      --video-shadow: var(--video-shadow-light);
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 40px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px var(--video-shadow);
+      background: #000;
+      aspect-ratio: 16/9;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .video-placeholder::before {
+      content: '▶';
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .video-placeholder p {
+      margin: 10px 0;
+      opacity: 0.8;
+    }
+
+    .upload-info {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 10px;
+    }
+
+    /* Estilo para vídeo real quando disponível */
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 30px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .cta-section .description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+
+    body.light-mode .cta-section .description {
+      color: #666;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .cta-buttons a {
+      text-decoration: none;
+      padding: 18px 25px;
+      font-weight: 600;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-buttons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-buttons a:hover::before {
+      left: 100%;
+    }
+
+    .btn-group {
+      background: linear-gradient(135deg, var(--accent-green) 0%, #1f8a3a 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn-group:hover {
+      background: linear-gradient(135deg, #1f8a3a 0%, #155724 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    }
+
+    .btn-compra {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #0056b3 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    }
+
+    .btn-compra:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: var(--footer-text);
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.5;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    body.light-mode footer {
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Responsividade melhorada */
+    @media (min-width: 768px) {
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .cta-buttons a {
+        flex: 1;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      header {
+        padding: 40px 15px 30px;
+      }
+
+      .cta-buttons a {
+        padding: 16px 20px;
+        font-size: 1rem;
+      }
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header, .video-container, .cta-section, footer {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .video-container { animation-delay: 0.2s; }
+    .cta-section { animation-delay: 0.4s; }
+    footer { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>iPhone 13 por apenas R$1</h1>
+    <p class="subtitle">Promoção limitada! Apenas 8.000 números disponíveis. Seu iPhone 13 novo e lacrado pode estar a um clique de distância. Não perca essa oportunidade única!</p>
+  </header>
+
+  <div class="video-container">
+    <!-- Para usar seu vídeo local, descomente a linha abaixo e comente o iframe -->
+    <!-- <video controls muted playsinline>
+      <source src="VID-20250614-WA0001.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video> -->
+    
+    <!-- Placeholder - substitua pelo link do seu vídeo no YouTube -->
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcd1234&autoplay=0&mute=1" 
+      title="iPhone 13 - Promoção Especial R$1" 
+      frameborder="0" 
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <section class="cta-section">
+    <h2>Garante já o seu iPhone 13!</h2>
+    <p class="description">Apenas 8.000 títulos disponíveis • Sorteio pela Loteria Federal • iPhone 13 novo e lacrado</p>
+    <div class="cta-buttons">
+      <a href="https://chat.whatsapp.com/IZ4mfc6M84d3Q3kgJeNjrT?mode=ac_cl" class="btn-group" target="_blank" rel="noopener">
+        <span>✅</span> Entrar no Grupo
+      </a>
+      <a href="https://r321.app/s/QXoOI7JL?fbclid=PAQ0xDSwLTuJ5leHRuA2FlbQIxMAABpw_tS_avobnDXDn-YnXGl9achR7n-HQsB-7uJf6s3FMQoiy06sBRUvpyc1Tl_aem_LC_wd41-73toOOb-x0YAIQ" class="btn-compra" target="_blank" rel="noopener">
+        <span>🎯</span> Garanta Agora
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    🍀 Ação promocional independente • Sorteio pela Loteria Federal • iPhone 13 novo e lacrado • Envio gratuito para todo Brasil • Esta promoção não possui vínculo com a Apple Inc.
+  </footer>
+
+  <script>
+    // Suporte ao modo escuro/claro do sistema
+    function updateTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.body.classList.add('light-mode');
+      } else {
+        document.body.classList.remove('light-mode');
+      }
+    }
+
+    // Aplicar tema inicial
+    updateTheme();
+
+    // Escutar mudanças no tema do sistema
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateTheme);
+    }
+
+    // Adicionar efeito de hover suave nos botões
+    document.querySelectorAll('.cta-buttons a').forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px) scale(1.02)';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Log de cliques para análise (opcional)
+    document.querySelectorAll('.cta-buttons a').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const buttonType = this.classList.contains('btn-group') ? 'grupo' : 'compra';
+        console.log(`Clique no botão: ${buttonType}`);
+      });
+    });
+  </script>
+
+</body>
+</html>
